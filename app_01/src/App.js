@@ -6,10 +6,11 @@ import Goods from "./Goods";
 
 const headerData = {
   site_name: "my test site name",
+  second_header: "second header",
   nav: [
-    { link: "nav1", text: "my link" },
-    { link: "nav1", text: "my link" },
-    { link: "nav1", text: "my link" },
+    { link: "https://www.google.com/", text: "my link to google" },
+    { link: "https://www.facebook.com/", text: "my link to facebook" },
+    { link: "https://www.instagram.com/", text: "my link to insagram" },
   ],
 };
 
@@ -29,6 +30,7 @@ function App() {
   return (
     <>
       <Header data={headerData} />
+
       <br />
       <hr />
       <h1> Hello</h1>
@@ -46,9 +48,19 @@ function App() {
       <br />
       <Test2 />
       <br />
-      {goods.map((item) => (
-        <Goods title={item.title} cost={item.cost} image={item.image} />
+      {goods.map((item, index) => (
+        <Goods
+          key={index} // должен быть уникальный ключ (key) в каждом элементе массива в цикле map!!!
+          title={item.title}
+          cost={item.cost}
+          image={item.image}
+        />
       ))}
+      {/* <Goods
+        title={goods[0].title}
+        cost={goods[0].cost}
+        image={goods[0].image}
+      /> */}
     </>
   );
 }
