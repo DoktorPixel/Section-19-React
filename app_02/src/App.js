@@ -1,4 +1,3 @@
-import "./App.css";
 import Header from "./Header";
 import About from "./About";
 import Users from "./Users";
@@ -6,6 +5,8 @@ import Main from "./Main";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import UserId from "./UserId";
 import Error from "./Error";
+import TodoAppClass from "./TodoAppClass";
+import TodoAppFunc from "./TodoAppFunc";
 
 function App() {
   return (
@@ -32,6 +33,13 @@ function App() {
           <Route path="/users/:userName" element={<UserId />} />
           <Route element={<Error />} />
         </Routes>
+
+        <hr />
+        <br />
+        <TodoAppClass />
+        <hr />
+        <br />
+        <TodoAppFunc />
       </>
     </BrowserRouter>
   );
