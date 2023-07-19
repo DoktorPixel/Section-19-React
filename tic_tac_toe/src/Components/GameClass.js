@@ -1,5 +1,5 @@
 import React from "react";
-import Board from "./BoardClass";
+import BoardClass from "./BoardClass";
 import CalculateWinner from "./CalculateWinner";
 
 class GameClass extends React.Component {
@@ -58,7 +58,7 @@ class GameClass extends React.Component {
 
     let status;
     if (winner) {
-      status = "Выиграл" + winner;
+      status = "Выиграл " + winner;
     } else {
       status = "Следующий ход: " + (this.state.xIsNext ? "X" : "O");
     }
@@ -66,7 +66,7 @@ class GameClass extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board
+          <BoardClass
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
           />

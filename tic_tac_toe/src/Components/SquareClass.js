@@ -1,6 +1,6 @@
 import React from "react";
 
-class Square extends React.Component {
+class SquareClass extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: null };
@@ -15,4 +15,4 @@ class Square extends React.Component {
   }
 }
 
-export default Square;
+export default SquareClass;
