@@ -1,0 +1,11 @@
+{
+  "short_name": "tic_Tac_Toe",
+  "name": "Create React App tic_Tac_Toe",
+  "icons": [
+
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
