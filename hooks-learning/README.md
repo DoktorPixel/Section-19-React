@@ -1,10 +1,3 @@
-Cоздал игру в крестики-нолики, которая:
-
-Позволяет вам играть в крестики нолики,
-Показывает, когда один из игроков выиграл,
-Хранит историю игры,
-Позволяет игрокам просматривать историю игры и видеть прошлые состояния игрового поля.
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
