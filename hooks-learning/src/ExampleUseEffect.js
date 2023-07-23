@@ -27,7 +27,7 @@ function ExampleUseEffect() {
       // Удаляем слушателя события клавиатуры при размонтировании компонента
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, [count]); // Передаем count как зависимость
+  }, [count]); // Передаем count как зависимость (если значение не поменялось, повторно рендериться не будет)
 
   return (
     <div className="wrapper">
