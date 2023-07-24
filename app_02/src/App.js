@@ -31,7 +31,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route exact path="/users" element={<Users />} />
           <Route path="/users/:userName" element={<UserId />} />
-          <Route element={<Error />} />
+          <Route path="*" element={<Error />} />
         </Routes>
 
         <hr />
