@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function Home() {
   const [cars, setCars] = useState(carsData);
+  console.log(cars);
   return (
     <div>
       <h1>Cars catalog</h1>
