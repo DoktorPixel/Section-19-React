@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import BoardFunc from "./BoardFunc";
-import CalculateWinner from "./CalculateWinner";
+import React, { useState } from 'react';
+import BoardFunc from './BoardFunc';
+import CalculateWinner from './CalculateWinner';
 const GameFunc = () => {
   const [history, setHistory] = useState([
     {
-      squares: Array(9).fill(null),
-    },
+      squares: Array(9).fill(null)
+    }
   ]);
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
@@ -17,12 +17,12 @@ const GameFunc = () => {
     if (CalculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = xIsNext ? "X" : "O";
+    squares[i] = xIsNext ? 'X' : 'O';
     setHistory([
       ...newHistory,
       {
-        squares: squares,
-      },
+        squares: squares
+      }
     ]);
     setStepNumber(newHistory.length);
     setXIsNext(!xIsNext);
@@ -37,7 +37,7 @@ const GameFunc = () => {
   const winner = CalculateWinner(current.squares);
 
   const moves = history.map((step, move) => {
-    const desc = move ? `Перейти к ходу #${move}` : "К началу игры";
+    const desc = move ? `Перейти к ходу № ${move}` : 'К началу игры';
     return (
       <li key={move}>
         <button onClick={() => jumpTo(move)}>{desc}</button>
@@ -49,7 +49,7 @@ const GameFunc = () => {
   if (winner) {
     status = `Выиграл ${winner}`;
   } else {
-    status = `Следующий ход: ${xIsNext ? "X" : "O"}`;
+    status = `Следующий ход: ${xIsNext ? 'X' : 'O'}`;
   }
 
   return (

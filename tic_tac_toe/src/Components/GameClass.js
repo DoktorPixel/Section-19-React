@@ -1,6 +1,6 @@
-import React from "react";
-import BoardClass from "./BoardClass";
-import CalculateWinner from "./CalculateWinner";
+import React from 'react';
+import BoardClass from './BoardClass';
+import CalculateWinner from './CalculateWinner';
 
 class GameClass extends React.Component {
   constructor(props) {
@@ -8,11 +8,11 @@ class GameClass extends React.Component {
     this.state = {
       history: [
         {
-          squares: Array(9).fill(null),
-        },
+          squares: Array(9).fill(null)
+        }
       ],
       stepNumber: 0,
-      xIsNext: true,
+      xIsNext: true
     };
   }
 
@@ -23,22 +23,22 @@ class GameClass extends React.Component {
     if (CalculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? "X" : "O";
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       history: history.concat([
         {
-          squares: squares,
-        },
+          squares: squares
+        }
       ]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext,
+      xIsNext: !this.state.xIsNext
     });
   }
 
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: step % 2 === 0,
+      xIsNext: step % 2 === 0
     });
   }
 
@@ -48,7 +48,7 @@ class GameClass extends React.Component {
     const winner = CalculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ? "Перейти к ходу #" : "К началу игры";
+      const desc = move ? `Перейти к ходу № ${move}` : 'К началу игры';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -58,9 +58,9 @@ class GameClass extends React.Component {
 
     let status;
     if (winner) {
-      status = "Выиграл " + winner;
+      status = 'Выиграл ' + winner;
     } else {
-      status = "Следующий ход: " + (this.state.xIsNext ? "X" : "O");
+      status = 'Следующий ход: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
