@@ -1,5 +1,5 @@
-import React from "react";
-import SquareFunc from "./SquareFunc";
+import React from 'react';
+import SquareFunc from './SquareFunc';
 
 const BoardFunc = ({ squares, onClick }) => {
   const renderSquare = (i) => {
