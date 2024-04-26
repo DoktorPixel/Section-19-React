@@ -4,7 +4,9 @@ const Header = () => {
     <div className="header">
       <Link to="/">Task list default</Link>
 
-      <Link to="/new-page">Task list by Reducer</Link>
+      <Link to="/task-app-reducer">Task list by Reducer</Link>
+
+      <Link to="/task-app-context">Task list by Context</Link>
     </div>
   );
 };
