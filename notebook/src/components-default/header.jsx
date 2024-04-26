@@ -3,8 +3,8 @@ const Header = () => {
   return (
     <div className="header">
       <Link to="/">Task list default</Link>
-      <br />
-      <Link to="/new-page">Task list new</Link>
+
+      <Link to="/new-page">Task list by Reducer</Link>
     </div>
   );
 };

@@ -1,39 +1,36 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import AddTask from '../../components-default/add-task.jsx';
 import TaskList from '../../components-default/task-list.jsx';
+import tasksReducer from '../../components-reducer/tasks-reducer.js';
 
-export default function TaskAppDefault() {
-  const [tasks, setTasks] = useState(initialTasks);
+export default function TaskAppReducer() {
+  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
   function handleAddTask(text) {
-    setTasks([
-      ...tasks,
-      {
-        id: nextId++,
-        text: text,
-        done: false
-      }
-    ]);
+    dispatch({
+      type: 'added',
+      id: nextId++,
+      text: text
+    });
   }
 
   function handleChangeTask(task) {
-    setTasks(
-      tasks.map((t) => {
-        if (t.id === task.id) {
-          return task;
-        } else {
-          return t;
-        }
-      })
-    );
+    dispatch({
+      type: 'changed',
+      task: task
+    });
   }
 
   function handleDeleteTask(taskId) {
-    setTasks(tasks.filter((t) => t.id !== taskId));
+    dispatch({
+      type: 'deleted',
+      id: taskId
+    });
   }
 
   return (
     <>
+      <h1>Task list by Reducer</h1>
       <h1>Prague itinerary</h1>
       <AddTask onAddTask={handleAddTask} />
       <TaskList
@@ -45,10 +42,9 @@ export default function TaskAppDefault() {
   );
 }
 
-let nextId = 4;
+let nextId = 3;
 const initialTasks = [
   { id: 0, text: 'Visit Kafka Museum', done: true },
   { id: 1, text: 'Watch a puppet show', done: false },
-  { id: 2, text: 'Lennon Wall pic', done: false },
-  { id: 3, text: 'test task', done: true }
+  { id: 2, text: 'Lennon Wall pic', done: false }
 ];
